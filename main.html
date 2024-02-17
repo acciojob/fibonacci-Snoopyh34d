@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Sequence</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <h2>Fibonacci Sequence</h2>
+    <label for="numTerms">Enter number of terms:</label>
+    <input type="number" id="numTerms" min="1" value="10">
+    <button onclick="calculateFibonacci()">Generate Sequence</button>
+    <p id="fibonacciSequence"></p>
 
+    <script>
+        function calculateFibonacci() {
+            var numTerms = document.getElementById("numTerms").value;
+            var sequence = [];
+            for (var i = 0; i < numTerms; i++) {
+                if (i <= 1) {
+                    sequence.push(i);
+                } else {
+                    sequence.push(sequence[i - 1] + sequence[i - 2]);
+                }
+            }
+            document.getElementById("fibonacciSequence").innerText = "Fibonacci sequence: " + sequence.join(", ");
+        }
+    </script>
 </body>
-
 </html>
